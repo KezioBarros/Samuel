@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff85a1;
+            --bg-dark: #1a1a2e;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            text-align:center;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+      
+        .background-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.15); 
+            font-size: 25px;
+            animation: floatHearts linear infinite;
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        header {
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 25px rgba(255, 77, 109, 0.6);
+        }
+
+        .typing-container {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .typing {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+     
+        .mesa-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+      
+        .midia-card {
+            background: white;
+            padding: 12px 12px 40px 12px;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .midia-card:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+     
+        .video-card {
+            width: 320px;
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+
+        .photo-card {
+            width: 260px;
+            aspect-ratio: 3/4;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+  
+        .mesa-container .midia-card:nth-child(1) { transform: rotate(-5deg); }
+        .mesa-container .midia-card:nth-child(2) { transform: rotate(3deg) translateY(-20px); }
+        .mesa-container .midia-card:nth-child(3) { transform: rotate(-3deg) translateY(15px); }
+        .mesa-container .midia-card:nth-child(4) { transform: rotate(4deg); }
+        .mesa-container .midia-card:nth-child(5) { transform: rotate(-2deg) translateY(-10px); }
+
+        .btn-surpresa {
+            margin: 80px auto 40px auto;
+            display: block;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-surpresa:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: #ff1e4d;
+            box-shadow: 0 8px 25px rgba(255, 77, 109, 0.6);
+        }
+
+      
+        .mensagem {
+            margin: 40px auto;
+            padding: 40px;
+            max-width: 650px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.25rem;
+            line-height: 1.9;
+            display: none;
+            animation: fadeIn 1.2s ease forwards;
+            position: relative;
+            z-index: 5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-bottom: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+   
+        .heart-click {
+            position: fixed;
+            color: #ff1e4d;
+            font-size: 25px;
+            z-index: 999;
+            pointer-events: none;
+            animation: fallClick linear forwards;
+        }
+
+        @keyframes fallClick {
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="background-hearts" id="bgHearts"></div>
+
+<header>
+    <h1>Meu Docinho❤️</h1>
+    <div class="typing-container">
+        <span class="typing" id="typing"></span>
+    </div>
+</header>
+
+<main>
+    <div class="mesa-container">
+        <div class="midia-card video-card">
+            <video autoplay muted loop playsinline>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="midia-card photo-card">
+            <img src="foto1.jpeg" alt="Nosso Momento">
+        </div>
+
+        <div class="midia-card video-card">
+            <video autoplay muted loop playsinline>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="midia-card photo-card">
+            <img src="foto2.jpeg" alt="Nossa História">
+        </div>
+
+        <div class="midia-card photo-card">
+            <img src="foto3.jpeg" alt="Meu Amor">
+        </div>
+    </div>
+
+    <button class="btn-surpresa" onclick="mostrarSurpresa()">🎉 Surpresa 🎉</button>
+
+    <div class="mensagem" id="mensagem">
+        <p>Ter você na minha vida é um presente.
+Cada conversa, cada momento e cada sorriso vc faz meu coração ficar mais feliz. Só quero continuar cuidando de você, te fazendo sorrir e vivendo coisas lindas ao seu lado..</p>
+        <p style="font-family: 'Dancing Script', cursive; font-size: 2.3rem; margin-top: 20px; color: var(--secondary);">Eu te amo para sempre! ✨</p>
+    </div>
+</main>
+
+<footer>
+    Feito com todo amor do mundo 💖
+</footer>
+
+<script>
+   
+    const texto = "Tainá, meu coração, você é pessoa que ilumina meus dias";
+    let i = 0;
+    function digitar() {
+        if (i < texto.length) {
+            document.getElementById("typing").textContent += texto.charAt(i);
+            i++;
+            setTimeout(digitar, 70);
+        }
+    }
+
+   
+    function iniciarCoracoesFundo() {
+        const container = document.getElementById('bgHearts');
+        const totalCoracoes = 25; 
+
+        for (let i = 0; i < totalCoracoes; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.innerHTML = '❤️';
+            
+          
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 10 + 10 + 's'; 
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px'; 
+
+            container.appendChild(heart);
+        }
+    }
+
+    window.onload = function() {
+        digitar();
+        iniciarCoracoesFundo();
+    };
+
+    
+    function mostrarSurpresa() {
+        const msg = document.getElementById("mensagem");
+        msg.style.display = "block";
+        
+      
+        for (let i = 0; i < 40; i++) {
+            criarCoracaoClique();
+        }
+        
+     
+        setTimeout(() => {
+            msg.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    }
+
+    function criarCoracaoClique() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart-click');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 2 + 2 + 's';
+        heart.style.opacity = Math.random() * 0.5 + 0.5;
+        document.body.appendChild(heart);
+        
+        setTimeout(() => { heart.remove(); }, 4000);
+    }
+</script>
+
+</body>
+</html>
